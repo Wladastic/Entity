@@ -31,22 +31,44 @@ For a deep dive into the thermodynamics of thought, Open Vector theory, and the 
 Current LLMs operate like a factory line. High-level instructions must survive a gauntlet of low-level processing, and simple tokens waste compute on deep abstraction layers.
 
 ```mermaid
-Input -> [L0] -> [L1] -> [L2] ... -> [L99] -> Output
-(Rigid, Sequential, High Latency, Wasted Local Compute)
+graph LR
+    I[Input] --> L0[Layer 0]
+    L0 --> L1[Layer 1]
+    L1 --> L2[Layer 2]
+    L2 -.-> L99[Layer 99]
+    L99 --> O[Output]
+    
+    style I fill:#e1e1e1,stroke:#333,stroke-width:2px
+    style O fill:#e1e1e1,stroke:#333,stroke-width:2px
+    style L0 fill:#ffcccc,stroke:#333
+    style L1 fill:#ffcccc,stroke:#333
+    style L2 fill:#ffcccc,stroke:#333
+    style L99 fill:#ffcccc,stroke:#333
 ```
 
 ### The Entity Architecture (The Field)
 Entity exposes all layers simultaneously. Inputs are injected directly where they belong based on abstraction level. Layers communicate laterally and vertically until the **Resonance Core** detects stability.
 
 ```mermaid
-       [Resonance Core (Energy Monitor)]
-                  |
-      +-----------+-----------+
-      |           |           |
-[Input A] --> [Layer 5] <--> [Layer 20] <-- [Input B (Context)]
-      ^           ^           ^
-      |           |           |
-   [Layer 0] <-> [Layer 10] <-> [Layer 30]
+graph TD
+    RC([Resonance Core<br/>Energy Monitor])
+    
+    subgraph Field [Resonance Field]
+        L0[Layer 0<br/>Surface] <--> L10[Layer 10]
+        L10 <--> L20[Layer 20<br/>Deep]
+        L20 <--> L30[Layer 30]
+        L5[Layer 5] <--> L20
+        L0 <--> L30
+    end
+    
+    RC -.-> Field
+    
+    InputA[Raw Input] --> L0
+    InputB[Context Injection] --> L20
+    
+    style RC fill:#aaffaa,stroke:#333,stroke-width:2px
+    style InputB fill:#ccccff,stroke:#333,stroke-dasharray: 5 5
+    style InputA fill:#e1e1e1,stroke:#333
 ```
 
 ## 🧠 Key Mechanisms
