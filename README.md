@@ -38,12 +38,12 @@ graph LR
     L2 -.-> L99[Layer 99]
     L99 --> O[Output]
     
-    style I fill:#e1e1e1,stroke:#333,stroke-width:2px
-    style O fill:#e1e1e1,stroke:#333,stroke-width:2px
-    style L0 fill:#ffcccc,stroke:#333
-    style L1 fill:#ffcccc,stroke:#333
-    style L2 fill:#ffcccc,stroke:#333
-    style L99 fill:#ffcccc,stroke:#333
+    style I fill:#e1e1e1,stroke:#333,stroke-width:2px,color:#000
+    style O fill:#e1e1e1,stroke:#333,stroke-width:2px,color:#000
+    style L0 fill:#ffcccc,stroke:#333,color:#000
+    style L1 fill:#ffcccc,stroke:#333,color:#000
+    style L2 fill:#ffcccc,stroke:#333,color:#000
+    style L99 fill:#ffcccc,stroke:#333,color:#000
 ```
 
 ### The Entity Architecture (The Field)
@@ -66,9 +66,9 @@ graph TD
     InputA[Raw Input] --> L0
     InputB[Context Injection] --> L20
     
-    style RC fill:#aaffaa,stroke:#333,stroke-width:2px
-    style InputB fill:#ccccff,stroke:#333,stroke-dasharray: 5 5
-    style InputA fill:#e1e1e1,stroke:#333
+    style RC fill:#aaffaa,stroke:#333,stroke-width:2px,color:#000
+    style InputB fill:#ccccff,stroke:#333,stroke-dasharray: 5 5,color:#000
+    style InputA fill:#e1e1e1,stroke:#333,color:#000
 ```
 
 ## 🧠 Key Mechanisms
